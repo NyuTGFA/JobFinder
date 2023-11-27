@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobFinder.MainPage"
+             x:Name="LoginPage"
+             BackgroundColor="Black">
+
+    <ScrollView>
+
+        <Grid VerticalOptions="FillAndExpand">
+            
+            <!-- Left Side Background Color -->
+            <Grid BackgroundColor="#2E2E2E" WidthRequest="50"/>
+           
+            <!-- White Card with Rounded Borders -->
+            <Frame Grid.Row="1"
+                   BackgroundColor="#6A66A3"
+                   Padding="20"
+                   HorizontalOptions="FillAndExpand"
+                   BorderColor="#ededee">
+                <StackLayout>
+                    <Label Text="Login"
+                           FontSize="26"
+                           TextColor="#542E71"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10" />
+
+                    <Entry Placeholder="Número de teléfono"
+                           BackgroundColor="#84A9C0"
+                           Keyboard="Telephone"
+                           Text="{Binding User.phoneNumber}"
+                           TextColor="White"
+                           Margin="0,0,0,10" />
+
+                    <Entry Placeholder="Contraseña"
+                           IsPassword="true"
+                           BackgroundColor="#84A9C0"
+                           TextColor="White"
+                           Text="{Binding User.password}"
+                           Margin="0,0,0,10" />
+
+                    <!-- Login Button -->
+                    <Button Text="Login"
+                            BackgroundColor="#542E71"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Command="{Binding Login}" 
+                            CommandParameter="{Binding Source={x:Reference LoginPage}, Path=.}"
+                            Margin="0,0,0,20"/>
+
+                    <!-- Forgot Password Link -->
+                    <Label Text="Registrar"
+                           TextColor="Black"
+                           FontSize="16"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="StartAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobFinder.RegisterPage"
+             x:Name="RegisterPageName"
+             BackgroundColor="#13678A">
+
+    <ScrollView>
+        <Grid VerticalOptions="FillAndExpand">
+           
+            <!-- Added Margin -->
+
+            <!-- White Card with Rounded Borders -->
+            <Frame Grid.Row="1"
+               BackgroundColor="#6A66A3"
+             
+               Padding="20"
+               HorizontalOptions="FillAndExpand"
+               >
+                <StackLayout>
+                    <Label Text="crear cuenta"
+                    FontSize="26"
+                    TextColor="#542E71"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,10" />
+
+                    <Entry Placeholder="Nombre"
+                           Text="{Binding UserVm.name}"
+                            BackgroundColor="#84A9C0"
+                    Keyboard="Text"
+                    TextColor="White"
+                    Margin="0,0,0,10" />
+
+                    <Entry Placeholder="telefono"
+                   Keyboard="Telephone"
+                            BackgroundColor="#84A9C0"
+                           Text="{Binding UserVm.phoneNumber}"
+                   TextColor="White"
+                   Margin="0,0,0,10" />
+
+                    <Entry Placeholder="describete"
+                    Keyboard="Text"
+                    TextColor="White"
+                            BackgroundColor="#84A9C0"
+                           Text="{Binding UserVm.introduction}"
+                    Margin="0,0,0,10" />
+
+
+                    <Entry Placeholder="Password"
+                           Text="{Binding UserVm.password}"
+                            BackgroundColor="#84A9C0"
+                   IsPassword="true"
+                   TextColor="White"
+                   Margin="0,0,0,10" />
+
+                    <Entry Placeholder="Confirmar contraseña"
+                           Text="{Binding UserVm.confirmPassword}"
+                    IsPassword="true"
+                            BackgroundColor="#84A9C0"
+                    TextColor="White"
+                    Margin="0,0,0,10" />
+
+                    <!-- Login Button -->
+                    <Button Text="Registrar"
+                    BackgroundColor="#542E71"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Command="{Binding Register}"
+                    CommandParameter="{Binding Source={x:Reference RegisterPageName}, Path=.}"
+                    Margin="0,0,0,20"/>
+
+                    <!-- Forgot Password Link -->
+                    <Label Text="ya tienes una cuenta? inicia sesion"
+                   TextColor="Black"
+                   FontSize="16"
+                   HorizontalOptions="CenterAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

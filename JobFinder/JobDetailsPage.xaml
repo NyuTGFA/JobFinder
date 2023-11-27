@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobFinder.JobDetailsPage"
+             BackgroundColor="Black"
+             Title="JobDetailsPage">
+    <VerticalStackLayout>
+        <Frame BackgroundColor="White" Padding="15" Margin="0,0,0,10" BorderColor="White" CornerRadius="5" HasShadow="True">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+
+                <Label TextColor="#13678A" Text="{Binding Job.title}" FontSize="18" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" Grid.ColumnSpan="2"/>
+                <Label TextColor="Black" FontAttributes="Bold" FontSize="18" Grid.Row="0" Grid.Column="1">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="$" />
+                            <Span Text="{Binding Job.salary}" />
+                            <Span Text=" per month" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Grey" FontAttributes="Bold" Text="{Binding Job.companyName}" Grid.Row="1" />
+                <Label TextColor="Grey" Text="{Binding Job.location}" Grid.Row="2" Grid.Column="0"/>
+                <Label TextColor="Grey" Grid.Row="2" Grid.Column="3" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Published at: " />
+                            <Span Text="{Binding Job.createdAt}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Grey" Grid.Row="3" Grid.Column="0" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding Job.contractType}" />
+                            <Span Text=": " />
+                            <Span Text="{Binding Job.schedule}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label TextColor="Grey" Text="{Binding Job.description}" Grid.Row="4" />
+                <Button 
+                    x:Name="btnApply"
+                    Text="Apply"
+                    BackgroundColor="#13678A"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Command="{Binding ApplyToJob}"
+                    Margin="0,0,0,20"/>
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
